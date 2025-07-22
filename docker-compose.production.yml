@@ -13,14 +13,14 @@ services:
     volumes:
       - pg_data_production:/var/lib/postgresql/data
   backend:
-    image: okojdan/taski_backend # Качаем с Docker Hub
+    image: okojdan/regru_taski_backend # Качаем с Docker Hub
     env_file: .env
     depends_on:
       - db
     volumes:
       - static_volume:/backend_static
   frontend:
-    image: okojdan/taski_frontend  # Качаем с Docker Hub
+    image: okojdan/regru_taski_frontend  # Качаем с Docker Hub
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     depends_on:
@@ -28,7 +28,7 @@ services:
     volumes:
       - static_volume:/frontend_static
   gateway:
-    image: okojdan/taski_gateway  # Качаем с Docker Hub
+    image: okojdan/regru_taski_gateway  # Качаем с Docker Hub
     env_file: .env
     depends_on:
       - backend
