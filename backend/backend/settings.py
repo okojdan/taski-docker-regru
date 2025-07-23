@@ -24,7 +24,6 @@ ALLOWED_HOSTS = ['79.174.80.207', '127.0.0.1', 'localhost', 'davairazberemsya.xy
 # Application definition
 
 INSTALLED_APPS = [
-    'api.apps.ApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
