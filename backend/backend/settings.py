@@ -1,7 +1,7 @@
 import os
-import dj_database_url
 from pathlib import Path
 
+import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -73,23 +73,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     # 'default': {
-        # Меняем настройку Django: теперь для работы будет использоваться
-        # бэкенд postgresql
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': os.getenv('POSTGRES_DB', 'django'),
-        # 'USER': os.getenv('POSTGRES_USER', 'django'),
-        # 'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        # 'HOST': os.getenv('DB_HOST', ''),
-        # 'PORT': os.getenv('DB_PORT', 5432)
+    # Меняем настройку Django: теперь для работы будет использоваться
+    # бэкенд postgresql
+    # 'ENGINE': 'django.db.backends.postgresql',
+    # 'NAME': os.getenv('POSTGRES_DB', 'django'),
+    # 'USER': os.getenv('POSTGRES_USER', 'django'),
+    # 'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+    # 'HOST': os.getenv('DB_HOST', ''),
+    # 'PORT': os.getenv('DB_PORT', 5432)
     'default': dj_database_url.config(
         # Fallback to a local sqlite DB for development if DATABASE_URL not set
         default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
     )
 }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': '/data/db.sqlite3',
-    # }
+# 'default': {
+#     'ENGINE': 'django.db.backends.sqlite3',
+#     'NAME': '/data/db.sqlite3',
+# }
 # }
 
 
