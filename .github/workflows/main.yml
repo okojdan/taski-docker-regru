@@ -40,15 +40,18 @@ jobs:
     - name: Test with flake8 and django tests
       # Добавляем env-переменные для доступа к БД
       env:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: django_password
+        # POSTGRES_USER: postgres
+        # POSTGRES_PASSWORD: django_password
+        # Your settings.py uses dj_database_url, which expects a single DATABASE_URL.
+        # We must construct it using the credentials from the postgres service.
+        DATABASE_URL: postgresql://postgres:django_password@127.0.0.1:5432/django_db
         # PGPASSWORD is used by the psql command-line utility
         PGPASSWORD: django_password
-        POSTGRES_DB: django_db
+        # POSTGRES_DB: django_db
         # Сервер БД запущен в Docker, но его порт проброшен на хост
         # Поэтому подключаемся к 127.0.0.1:5432
-        DB_HOST: 127.0.0.1
-        DB_PORT: 5432
+        # DB_HOST: 127.0.0.1
+        # DB_PORT: 5432
       run: |
         # Diagnostic step: Check PostgreSQL users and their privileges.
         # The "postgres" user should have the "Superuser" and "Create DB" attributes.
